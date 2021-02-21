@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b092f12-9f96-4401-b3c8-3d8bb23b3733" name="Default Changelist" comment="" />
+    <list default="true" id="3b092f12-9f96-4401-b3c8-3d8bb23b3733" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/validations/validate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/entity/customer.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/entity/customer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/validations/validate.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/validations/validate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/api/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/api/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/api/customer_api.go" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/api/customer_api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/http/customer_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/http/customer_handler.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,28 +27,102 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1olaSWXx0sFHgG7Y45BTjRZuLzh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/infrastructure/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/domain/service" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/domain/service" />
+      <recent name="$PROJECT_DIR$/infrastructure/validations" />
       <recent name="$PROJECT_DIR$/infrastructure/utils" />
       <recent name="$PROJECT_DIR$/database" />
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager" selected="Go Test.TestGetValidCountryRegexByPhoneNumber in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations">
+    <configuration name="TestFileCountriesJsonExits in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-phone-validator-v2" />
+      <working_directory value="$PROJECT_DIR$/infrastructure/validations" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestFileCountriesJsonExits\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetCountryRegexByPhone in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-phone-validator-v2" />
+      <working_directory value="$PROJECT_DIR$/infrastructure/validations" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestGetCountryRegexByPhone\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetValidCountryRegexByPhoneNumber in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-phone-validator-v2" />
+      <working_directory value="$PROJECT_DIR$/infrastructure/validations" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestGetValidCountryRegexByPhoneNumber\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestValidatePhone in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-phone-validator-v2" />
+      <working_directory value="$PROJECT_DIR$/infrastructure/validations" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestValidatePhone\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestValidatePhoneInValid in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-phone-validator-v2" />
+      <working_directory value="$PROJECT_DIR$/infrastructure/validations" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestValidatePhoneInValid\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestGetValidCountryRegexByPhoneNumber in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+        <item itemvalue="Go Test.TestValidatePhoneInValid in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+        <item itemvalue="Go Test.TestValidatePhone in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+        <item itemvalue="Go Test.TestGetCountryRegexByPhone in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+        <item itemvalue="Go Test.TestFileCountriesJsonExits in github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -55,6 +141,26 @@
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="749" y="381" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1152@0.0.2048.1152" timestamp="1613874826424" />
+    <state width="1204" height="299" key="GridCell.Tab.0.bottom" timestamp="1613898649657">
+      <screen x="0" y="23" width="2048" height="1129" />
+    </state>
+    <state width="944" height="292" key="GridCell.Tab.0.bottom/0.0.2048.1152@0.0.2048.1152" timestamp="1613879537854" />
+    <state width="1204" height="299" key="GridCell.Tab.0.bottom/0.23.2048.1129@0.23.2048.1129" timestamp="1613898649657" />
+    <state width="1204" height="299" key="GridCell.Tab.0.center" timestamp="1613898649657">
+      <screen x="0" y="23" width="2048" height="1129" />
+    </state>
+    <state width="944" height="292" key="GridCell.Tab.0.center/0.0.2048.1152@0.0.2048.1152" timestamp="1613879537853" />
+    <state width="1204" height="299" key="GridCell.Tab.0.center/0.23.2048.1129@0.23.2048.1129" timestamp="1613898649657" />
+    <state width="1204" height="299" key="GridCell.Tab.0.left" timestamp="1613898649657">
+      <screen x="0" y="23" width="2048" height="1129" />
+    </state>
+    <state width="944" height="292" key="GridCell.Tab.0.left/0.0.2048.1152@0.0.2048.1152" timestamp="1613879537853" />
+    <state width="1204" height="299" key="GridCell.Tab.0.left/0.23.2048.1129@0.23.2048.1129" timestamp="1613898649657" />
+    <state width="1204" height="299" key="GridCell.Tab.0.right" timestamp="1613898649657">
+      <screen x="0" y="23" width="2048" height="1129" />
+    </state>
+    <state width="944" height="292" key="GridCell.Tab.0.right/0.0.2048.1152@0.0.2048.1152" timestamp="1613879537854" />
+    <state width="1204" height="299" key="GridCell.Tab.0.right/0.23.2048.1129@0.23.2048.1129" timestamp="1613898649657" />
     <state x="533" y="215" key="SettingsEditor" timestamp="1613865181214">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>

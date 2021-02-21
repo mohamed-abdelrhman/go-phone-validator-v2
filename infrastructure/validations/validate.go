@@ -9,7 +9,7 @@ import (
 
 func ValidatePhone(phone string)bool{
 
-	countryRegex, err :=getCountryRegexByPhone(phone)
+	countryRegex, err :=GetCountryRegexByPhone(phone)
 	if err !=nil {
 		return false
 	}else {
@@ -18,7 +18,7 @@ func ValidatePhone(phone string)bool{
 	}
 }
 
-func getCountryRegexByPhone(phone string) (*string,error)  {
+func GetCountryRegexByPhone(phone string) (*string,error)  {
 	type country struct {
 		Name        string `json:"name"`
 		CountryCode string `json:"country_code"`

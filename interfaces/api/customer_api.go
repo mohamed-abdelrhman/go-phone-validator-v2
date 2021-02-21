@@ -10,6 +10,4 @@ import (
 func CustomerUrlMapping()  {
 	customers := http.NewCustomers(application.NewCustomerApp(service.NewCustomerService(db.NewCustomerRepository())))
 	Router.GET("/customers", customers.GetCustomers)
-
-
 }
