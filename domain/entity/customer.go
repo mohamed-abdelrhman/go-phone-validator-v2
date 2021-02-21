@@ -9,3 +9,7 @@ type Customer struct {
 
 type Customers []Customer
 
+type FilterCustomer struct {
+	CountryCode string
+	Status string
+}

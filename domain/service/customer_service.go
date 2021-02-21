@@ -7,7 +7,7 @@ import (
 )
 
 type CustomerServiceInterface interface {
-	GetCustomers() ([]entity.Customer, *errors.RestErr)
+	GetCustomers(filterCustomers entity.FilterCustomer) ([]entity.Customer, *errors.RestErr)
 }
 
 
@@ -20,6 +20,6 @@ func NewCustomerService(ur db.CustomerRepositoryInterface ) CustomerServiceInter
 	}
 
 }
-func (s *customerService)GetCustomers() ([]entity.Customer, *errors.RestErr){
-	return s.ur.GetCustomers()
+func (s *customerService)GetCustomers(filterCustomers entity.FilterCustomer) ([]entity.Customer, *errors.RestErr){
+	return s.ur.GetCustomers(filterCustomers)
 }

@@ -51,13 +51,18 @@
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="824" y="416" key="#Go_Modules/0.0.2048.1152@0.0.2048.1152" timestamp="1613863740187" />
+    <state x="749" y="381" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613874826424">
+      <screen x="0" y="0" width="2048" height="1152" />
+    </state>
+    <state x="749" y="381" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2048.1152@0.0.2048.1152" timestamp="1613874826424" />
     <state x="533" y="215" key="SettingsEditor" timestamp="1613865181214">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="533" y="215" key="SettingsEditor/0.0.2048.1152@0.0.2048.1152" timestamp="1613865181214" />
-    <state x="166" y="276" width="670" height="676" key="search.everywhere.popup" timestamp="1613869837939">
-      <screen x="0" y="23" width="2048" height="1129" />
+    <state x="166" y="258" width="670" height="690" key="search.everywhere.popup" timestamp="1613872773881">
+      <screen x="0" y="0" width="2048" height="1152" />
     </state>
+    <state x="166" y="258" width="670" height="690" key="search.everywhere.popup/0.0.2048.1152@0.0.2048.1152" timestamp="1613872773881" />
     <state x="166" y="276" width="670" height="676" key="search.everywhere.popup/0.23.2048.1129@0.23.2048.1129" timestamp="1613869837939" />
   </component>
   <component name="XDebuggerManager">
