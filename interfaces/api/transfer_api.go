@@ -7,8 +7,8 @@ import (
 	"github.com/mohamed-abdelrhman/moneytransfer/interfaces/http"
 )
 
-func CustomerUrlMapping()  {
-	customers := http.NewCustomers(application.NewCustomerApp(service.NewCustomerService(db.NewCustomerRepository())))
-	Router.GET("/customers/:customer_id", customers.GetCustomers)
-	Router.POST("/customers", customers.CreateCustomer)
+func TransferUrlMapping()  {
+	transfers := http.NewTransfers(application.NewTransferApp(service.NewTransferService(db.NewTransferRepository(),db.NewCustomerRepository())))
+	Router.GET("/transfers/:transfer_id", transfers.GetTransfers)
+	Router.POST("/transfers", transfers.CreateTransfer)
 }

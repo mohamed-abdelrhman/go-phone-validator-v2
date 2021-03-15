@@ -1,7 +1,7 @@
 package main
 
-import "github.com/mohamed-abdelrhman/go-phone-validator-v2/interfaces/api"
+import "github.com/mohamed-abdelrhman/moneytransfer/interfaces/api"
 
-func main()  {
+func main() {
 	api.StartApplication()
 }

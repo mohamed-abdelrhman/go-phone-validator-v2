@@ -1,9 +1,9 @@
 package application
 
 import (
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/domain/entity"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/domain/service"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/utils/errors"
+	"github.com/mohamed-abdelrhman/moneytransfer/domain/entity"
+	"github.com/mohamed-abdelrhman/moneytransfer/domain/service"
+	"github.com/mohamed-abdelrhman/moneytransfer/infrastructure/utils/errors"
 )
 
 type customerApp struct {
@@ -14,13 +14,17 @@ type customerApp struct {
 var _ CustomerAppInterface = &customerApp{}
 
 type CustomerAppInterface interface {
-	GetCustomers(filterCustomers entity.FilterCustomer) ([]entity.Customer, *errors.RestErr)
+	GetCustomer(customerID string) (*entity.Customer, *errors.RestErr)
+	CreateCustomer(customer entity.Customer) (*entity.Customer, *errors.RestErr)
 }
 func NewCustomerApp(cs service.CustomerServiceInterface ) CustomerAppInterface {
 	return &customerApp{
 		cs: cs,
 	}
 }
-func (c *customerApp) GetCustomers(filterCustomers entity.FilterCustomer) ([]entity.Customer, *errors.RestErr) {
-	return c.cs.GetCustomers(filterCustomers)
+func (c *customerApp) GetCustomer(customerID string) (*entity.Customer, *errors.RestErr) {
+	return c.cs.GetCustomer(customerID)
+}
+func (c *customerApp) CreateCustomer(customer entity.Customer) (*entity.Customer, *errors.RestErr) {
+	return c.cs.CreateCustomer(customer)
 }

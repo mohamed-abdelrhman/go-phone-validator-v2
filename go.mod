@@ -1,11 +1,11 @@
-module github.com/mohamed-abdelrhman/go-phone-validator-v2
+module github.com/mohamed-abdelrhman/moneytransfer
 
 go 1.15
 
 require (
-	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.6.3
-	github.com/mattn/go-sqlite3 v1.14.6
+	github.com/go-redis/redis/v8 v8.7.1
+	github.com/google/uuid v1.2.0 // indirect
 	github.com/rs/cors v1.7.0
-	github.com/stretchr/testify v1.4.0
+	go.uber.org/zap v1.16.0
 )

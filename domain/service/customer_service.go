@@ -1,13 +1,16 @@
 package service
 
 import (
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/domain/entity"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/persistence/db"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/utils/errors"
+	"github.com/google/uuid"
+	"github.com/mohamed-abdelrhman/moneytransfer/domain/entity"
+	"github.com/mohamed-abdelrhman/moneytransfer/infrastructure/persistence/db"
+	"github.com/mohamed-abdelrhman/moneytransfer/infrastructure/utils/errors"
 )
 
 type CustomerServiceInterface interface {
-	GetCustomers(filterCustomers entity.FilterCustomer) ([]entity.Customer, *errors.RestErr)
+	GetCustomer(customerID string) (*entity.Customer, *errors.RestErr)
+	CreateCustomer(customer entity.Customer) (*entity.Customer, *errors.RestErr)
+
 }
 
 
@@ -18,8 +21,12 @@ func NewCustomerService(ur db.CustomerRepositoryInterface ) CustomerServiceInter
 	return &customerService{
 		ur: ur,
 	}
-
 }
-func (s *customerService)GetCustomers(filterCustomers entity.FilterCustomer) ([]entity.Customer, *errors.RestErr){
-	return s.ur.GetCustomers(filterCustomers)
+func (s *customerService)GetCustomer(customerID string) (*entity.Customer, *errors.RestErr){
+	return s.ur.GetCustomer(customerID)
+}
+
+func (s *customerService)CreateCustomer(customer entity.Customer) (*entity.Customer, *errors.RestErr){
+	customer.ID=uuid.New().String()
+	return s.ur.CreateCustomer(customer)
 }

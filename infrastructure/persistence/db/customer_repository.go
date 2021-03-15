@@ -1,21 +1,20 @@
 package db
 
 import (
-	"database/sql"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/domain/entity"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/clients"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/utils/errors"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/validations"
+	"context"
+	"encoding/json"
+	"github.com/mohamed-abdelrhman/moneytransfer/domain/entity"
+	"github.com/mohamed-abdelrhman/moneytransfer/infrastructure/clients"
+	"github.com/mohamed-abdelrhman/moneytransfer/infrastructure/utils/errors"
 	"log"
-)
-const(
-	queryGetAllCustomer=" SELECT * from customer ;"
-	queryGetCustomersByCountryCode=" SELECT * from customer where phone LIKE ? ;"
 )
 
 
 type CustomerRepositoryInterface interface {
-	GetCustomers(filterCustomers entity.FilterCustomer) ([]entity.Customer, *errors.RestErr)
+	GetCustomer(customerID string) (*entity.Customer, *errors.RestErr)
+	AddBalance(customerID string, amount int) (*entity.Customer, *errors.RestErr)
+	DeductBalance(customerID string, amount int) (*entity.Customer, *errors.RestErr)
+	CreateCustomer(customer entity.Customer) (*entity.Customer, *errors.RestErr)
 }
 
 type customerRepository struct {
@@ -25,54 +24,62 @@ func NewCustomerRepository() CustomerRepositoryInterface {
 	return &customerRepository{}
 }
 
-func (r *customerRepository)GetCustomers(filterCustomer entity.FilterCustomer) ([]entity.Customer, *errors.RestErr){
-	var stmt *sql.Stmt
-	var err error
-	if filterCustomer.CountryCode=="" {
-		stmt, err =clients.GetSQLClient().Prepare(queryGetAllCustomer)
-	}else {
-		stmt, err =clients.GetSQLClient().Prepare(queryGetCustomersByCountryCode)
-		log.Println()
-	}
+func (r *customerRepository)GetCustomer(customerID string) (*entity.Customer, *errors.RestErr){
+	client :=clients.GetRedisClient()
+	customer :=entity.Customer{}
+	ctx := context.TODO()
+	data := client.Get(ctx, customerID)
+	err := json.Unmarshal([]byte(data.Val()), &customer)
 	if err != nil {
-		log.Println(err)
-		return nil, errors.NewInternalServerError("Database parsing error")
+		return nil, errors.NewNotFoundError("No Such Customer")
 	}
-	defer stmt.Close()
-
-
-	var rows *sql.Rows
-	if filterCustomer.CountryCode=="" {
-		rows,err=stmt.Query()
-	}else {
-		rows,err=stmt.Query(filterCustomer.CountryCode+"%")
-	}
-
-	if err != nil {
-		log.Println(err)
-		return nil, errors.NewInternalServerError("Database parsing error")
-	}
-	defer rows.Close()
-	results:=make([]entity.Customer,0)
-	for rows.Next(){
-		var customer entity.Customer
-
-		if err :=rows.Scan(&customer.ID,&customer.Name,&customer.Phone);err!=nil{
-			log.Println(err)
-			return nil, errors.NewInternalServerError("Database parsing error")
-		}
-		customer.Status =validations.ValidatePhone(customer.Phone)
-		switch filterCustomer.Status {
-		case "":
-			results=append(results,customer)
-		case "valid":
-			if customer.Status {results=append(results,customer)}
-		default :
-			if !customer.Status {results=append(results,customer)}
-		}
-	}
-	if len(results)==0 {
-		return  nil, errors.NewNotFoundError("No Customers Found")
-	}
-	return results,nil
+	return &customer,nil
 }
+
+
+func (r *customerRepository)CreateCustomer(customer entity.Customer) (*entity.Customer, *errors.RestErr){
+	client :=clients.GetRedisClient()
+	ctx := context.TODO()
+	client.Del(ctx,customer.ID)
+
+	v,err :=json.Marshal(customer)
+	if err != nil {
+		log.Println(err)
+		return nil, errors.NewInternalServerError("Some thing went wrong")
+	}
+	client.Set(ctx, customer.ID, v, 0)
+
+	return &customer,nil
+}
+
+
+func (r *customerRepository)AddBalance(customerID string, amount int) (*entity.Customer, *errors.RestErr){
+	client :=clients.GetRedisClient()
+	customer :=entity.Customer{}
+	ctx := context.TODO()
+	data := client.Get(ctx, customerID)
+	err := json.Unmarshal([]byte(data.Val()), &customer)
+	if err != nil {
+		return nil, errors.NewNotFoundError("No Such Customer")
+	}
+
+	client.Del(ctx,customer.ID)
+	customer.Balance=customer.Balance+ amount
+	return r.CreateCustomer(customer)
+}
+
+func (r *customerRepository)DeductBalance(customerID string, amount int) (*entity.Customer, *errors.RestErr){
+	client :=clients.GetRedisClient()
+	customer :=entity.Customer{}
+	ctx := context.TODO()
+	data := client.Get(ctx, customerID)
+	err := json.Unmarshal([]byte(data.Val()), &customer)
+	if err != nil {
+		return nil, errors.NewNotFoundError("No Such Customer")
+	}
+
+	client.Del(ctx,customer.ID)
+	customer.Balance=customer.Balance- amount
+	return r.CreateCustomer(customer)
+}
+

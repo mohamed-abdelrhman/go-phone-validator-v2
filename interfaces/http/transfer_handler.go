@@ -9,56 +9,56 @@ import (
 	"net/http"
 )
 
-type CustomerHandlerInterface interface {
-	GetCustomers(c *gin.Context)
-	CreateCustomer(c *gin.Context)
+type TransferHandlerInterface interface {
+	GetTransfers(c *gin.Context)
+	CreateTransfer(c *gin.Context)
 }
 
-type customerHandler struct {
-	ca application.CustomerAppInterface
+type transferHandler struct {
+	ca application.TransferAppInterface
 }
 
-func NewCustomers(ca application.CustomerAppInterface ) CustomerHandlerInterface {
-	return &customerHandler{
+func NewTransfers(ca application.TransferAppInterface ) TransferHandlerInterface {
+	return &transferHandler{
 		ca: ca,
 	}
 }
 
-func (ch *customerHandler) GetCustomers(c *gin.Context) {
+func (ch *transferHandler) GetTransfers(c *gin.Context) {
 
-	customerID:= c.Param("customer_id")
-	if customerID=="" {
+	transferID:= c.Param("transfer_id")
+	if transferID=="" {
 		c.JSON(http.StatusBadRequest,errors.NewBadRequestError("Invalid Id"))
 		return
 	}
-	customers := &entity.Customer{}
+	transfers := &entity.Transfer{}
 	var err *errors.RestErr
-	customers, err = ch.ca.GetCustomer(customerID)
+	transfers, err = ch.ca.GetTransfer(transferID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
 		return
 	}
-	c.JSON(http.StatusOK, customers)
+	c.JSON(http.StatusOK, transfers)
 }
 
 
-func (ch *customerHandler) CreateCustomer(c *gin.Context) 	{
+func (ch *transferHandler) CreateTransfer(c *gin.Context) 	{
 
-	var customer entity.Customer
-	if err:=c.ShouldBindJSON(&customer);err!=nil{
+	var transfer entity.Transfer
+	if err:=c.ShouldBindJSON(&transfer);err!=nil{
 		restErr:=errors.NewBadRequestError("Invalid Form Body")
 		logger.Error("error Binding save request",err)
 		c.JSON(restErr.Status,restErr)
 		return
 	}
 
-	savedCustomer := &entity.Customer{}
+	savedTransfer := &entity.Transfer{}
 	var err *errors.RestErr
-	savedCustomer, err = ch.ca.CreateCustomer(customer)
+	savedTransfer, err = ch.ca.CreateTransfer(transfer)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, err)
 		return
 	}
-	c.JSON(http.StatusOK, savedCustomer)
+	c.JSON(http.StatusOK, savedTransfer)
 }
 

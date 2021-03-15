@@ -3,7 +3,7 @@ package api
 import (
 	cors "github.com/rs/cors/wrapper/gin"
 	"github.com/gin-gonic/gin"
-	"github.com/mohamed-abdelrhman/go-phone-validator-v2/infrastructure/clients"
+	"github.com/mohamed-abdelrhman/moneytransfer/infrastructure/clients"
 	"log"
 )
 
@@ -12,8 +12,9 @@ var(
 )
 
 func StartApplication() {
-	clients.GetSQLClient()
+	clients.GetRedisClient()
 	CustomerUrlMapping()
+	TransferUrlMapping()
 	Router.Use(cors.AllowAll())
-	log.Fatal(Router.Run(":8000"))
+	log.Fatal(Router.Run(":8080"))
 }
